@@ -4,11 +4,11 @@ Simple C++ click player that plays back click delays
 
 ## Disclaimer
 
-You need to record and put in your own delays and put them in clicks::clickdata
+You need to record clicks then put them in [clicks::clickdata](https://github.com/buxh/Click-Player/blob/main/clicker/clicks/clicks.cpp#L4)
 ```c++
 std::vector<int> clicks::clickdata = { 1,2,3,4,5,6,7,8,9,10 };
 ```
-To gather click delays you will need a recorder. Here is a clicker that contains a recorder. [Toad Clicker, Recorder and Player](https://github.com/Steve987321/toadclicker).
+To gather click delays you will need a click recorder. Here is a clicker that contains a recorder. [Toad Clicker, Recorder and Player](https://github.com/Steve987321/toadclicker).
 
 ## Features
  - Plays back click delays in milliseconds
