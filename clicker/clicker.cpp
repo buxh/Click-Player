@@ -45,9 +45,9 @@ void clicker::thread() {
                     if (window == FindWindowA(utils::minecraft, nullptr)) {
 
                         PostMessageA(window, WM_LBUTTONDOWN, MK_LBUTTON, 0);
-                        nt::sleep(delay / 2);
+                        nt::sleep(delay / 2 - upscale);
                         PostMessageA(window, WM_LBUTTONUP, MK_LBUTTON, 0);
-                        nt::sleep(delay / 2);
+                        nt::sleep(delay / 2 - upscale);
 
                         // some recordings may have saved delays differently so you may need to replace the code above with this
                         //
