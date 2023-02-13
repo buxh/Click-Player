@@ -1,20 +1,44 @@
 # Click Player
-
 Simple C++ click player that plays back click delays
 
-## Disclaimer
+## Download
+[Download](https://github.com/buxh/Click-Player/releases/download/minecraft/Click_Recorder_and_Player.zip)
 
-You need to record clicks then put them in [clicks::clickdata](https://github.com/buxh/Click-Player/blob/main/clicker/clicks/clicks.cpp#L4)
+## How to implement your clicks
+Put click delays in [clicks::clickdata](https://github.com/buxh/Click-Player/blob/main/clicker/clicks/clicks.cpp#L4).
+
 ```c++
-std::vector<int> clicks::clickdata = { 1,2,3,4,5,6,7,8,9,10 };
+std::vector<int> clicks::clickdata = { 98,43,57,110,43,60,44,69,44,58 };
 ```
-To gather click delays you will need a click recorder. Here is a clicker that contains a recorder. [Toad Clicker, Recorder and Player](https://github.com/Steve987321/toadclicker).
+
+In the [releases](https://github.com/buxh/Click-Player/releases) tab a click recorder has been provided along with a compiled version of the click player. To start recording clicks just open `Recorder.exe` and start clicking in game. After you are happy with the clicks go to this [website](https://delim.co/) and paste the click data from the txt into the "Column Data Here" tab then click the blue and white ">" button. Copy the contents of the "Delimited Data Here" tab and paste it into clicks.cpp inside clicks::clickdata. This site allows you to separate each value so you can add it to the vector.
+
+## Preview
+<img src="https://i.imgur.com/4lCv6IS.png"/>
 
 ## Features
  - Plays back click delays in milliseconds
- - Click in inventory
- - Upscale / CPS Boost, adding or reducing milliseconds.
+ - Random start point
+ - View CPS
+ - Click data information
  - Command line arguments
+
+## To do
+ - [x] Upscale / CPS Boost, adding or reducing milliseconds
+ - [x] Click in inventory
+ - [x] Right mouse button lock
+ - [ ] ImGui
+ - [ ] Exhaust
+ - [ ] Self Destruct
+ - [ ] Auto pot
+ - [ ] Break blocks
+ - [ ] Jitter
+ - [ ] Click Profiles
+ - [ ] Config Creation
+ - [ ] Slot Whitelist
+ - [ ] Double Clicker
+
+ If you want anything added [create an issue](https://github.com/buxh/Click-Player/issues) and suggest it or message me on discord: `envy#4339`
 
 ## Support
 All my socials are found [here](https://solo.to/buxh) contact me for help.
