@@ -4,7 +4,9 @@
 #include <vector>
 
 namespace clicks {
+
     extern std::vector<int> clickdata;
+
 }
 
 #endif //CLICKER_CLICKS_H

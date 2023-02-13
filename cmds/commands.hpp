@@ -1,4 +1,3 @@
-#include <iostream>
 
 namespace commands {
 
@@ -11,5 +10,8 @@ namespace commands {
     void inventory_response();
     void help_response();
     void invalid_response();
+    void cps_response();
+    void keybind_response();
+    void rmb_lock_response();
 
 }

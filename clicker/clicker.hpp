@@ -4,11 +4,14 @@
 namespace clicker {
 
     inline int upscale = 0;
-    inline int bind = 0;
+    inline char bind = 0;
 
     inline bool enable = false;
     inline bool inventory = false;
-    void thread();
+    inline bool rmb_lock = false;
+
+    extern void thread();
+    extern void binds();
 
 }
 
