@@ -49,7 +49,7 @@ void clicker::thread() {
                         PostMessageA(window, WM_LBUTTONUP, MK_LBUTTON, 0);
                         nt::sleep(delay / 2 - upscale);
 
-                        // some recordings may have saved delays differently so you may need to replace the code above with this
+                        // some recordings may have saved delays differently, assuming you didn't use the recorder provided, so you may need to replace the code above with this
                         //
                         // PostMessageA(window, WM_LBUTTONDOWN, MK_LBUTTON, 0);
                         // nt::sleep(delay - upscale);
@@ -78,7 +78,7 @@ void clicker::binds() {
                 }
             }
 
-            while (GetAsyncKeyState(clicker::bind) & 1) {}
+            while (GetAsyncKeyState(clicker::bind)) {}
         }
     }
 }
