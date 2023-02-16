@@ -13,23 +13,21 @@ void clicker::thread() {
 
         for (const auto& delay : clicks::clickdata) {
 
-            if (clicker::inventory == false) {
-                auto isCursorVisible
+            if (!clicker::inventory) {
+
+                const auto isCursorVisible = []() -> bool
                 {
-                    [&]()
+                    CURSORINFO mouseInfo{ sizeof(CURSORINFO) };
+
+                    if (GetCursorInfo(&mouseInfo))
                     {
-                        CURSORINFO mouseInfo { sizeof(CURSORINFO) };
+                        HCURSOR handle{ mouseInfo.hCursor };
 
-                        if (GetCursorInfo(&mouseInfo))
-                        {
-                            HCURSOR handle { mouseInfo.hCursor };
-
-                            if ((int(handle) > 50000) & (int(handle) < 100000))
-                                return true;
-                            else
-                                return false;
-                        }
+                        if ((int(handle) > 50000) & (int(handle) < 100000))
+                            return true;
                     }
+
+                    return false;
                 };
 
                     while (isCursorVisible()) { nt::sleep(10); }
