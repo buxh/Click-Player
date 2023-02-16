@@ -12,7 +12,7 @@
 int main() {
     utils::init();
 
-    const std::unordered_map<std::string, void(*)()> commands = {
+    const std::unordered_map<std::string, std::function<void()>> commands = {
         {xorstr("toggle"), commands::toggle_response},
         {xorstr("upscale"), commands::upscale_response},
         {xorstr("clickdata"), commands::clickdata_response},
@@ -24,14 +24,21 @@ int main() {
     };
 
     for (;; std::this_thread::sleep_for(std::chrono::milliseconds(1))) {
+
         std::cout << xorstr("> ") << std::flush;
         std::cin >> commands::input;
+
         std::cout << std::endl;
+
+        std::transform(commands::input.begin(), commands::input.end(), commands::input.begin(),
+            [](unsigned char c) { return std::tolower(c, std::locale()); });
+
 
         const auto it = commands.find(commands::input);
 
         if (it != commands.end()) { it->second(); }
         else { commands::invalid_response(); }
+
     }
 
     return 0;
