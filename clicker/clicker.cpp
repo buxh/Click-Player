@@ -51,9 +51,9 @@ void clicker::thread() {
                         // some recorders may have saved delays differently so you may need to replace the code above with this
                         //
                         // PostMessageA(window, WM_LBUTTONDOWN, MK_LBUTTON, 0);
-                        // nt::sleep(delay - upscale);
+                        // nt::sleep(delay - upscale * 2);
                         // PostMessageA(window, WM_LBUTTONUP, MK_LBUTTON, 0);
-                        // nt::sleep(delay - upscale);
+                        // nt::sleep(delay - upscale * 2);
                     }
                 }
                 else { nt::sleep(10); }
