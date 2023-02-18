@@ -20,19 +20,17 @@ int main() {
         {xorstr("help"), commands::help_response},
         {xorstr("cps"), commands::cps_response},
         {xorstr("keybind"), commands::keybind_response},
-        {xorstr("rmblock"), commands::rmb_lock_response}
+        {xorstr("rmblock"), commands::rmb_lock_response},
+        {xorstr("filter"), commands::filter_response}
     };
 
     for (;; std::this_thread::sleep_for(std::chrono::milliseconds(1))) {
 
         std::cout << xorstr("> ") << std::flush;
         std::cin >> commands::input;
-
         std::cout << std::endl;
 
-        std::transform(commands::input.begin(), commands::input.end(), commands::input.begin(),
-            [](unsigned char c) { return std::tolower(c, std::locale()); });
-
+        std::transform(commands::input.begin(), commands::input.end(), commands::input.begin(), [](unsigned char c) { return std::tolower(c, std::locale()); });
 
         const auto it = commands.find(commands::input);
 

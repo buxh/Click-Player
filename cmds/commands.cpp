@@ -18,7 +18,7 @@ void commands::toggle_response() {
     }
     else {
         std::cout << xorstr("done! clicker is now disabled.\n\n");
-        SetConsoleTitleA("clicker: disabled");
+        SetConsoleTitleA(xorstr("clicker: disabled"));
     }
 
 }
@@ -26,7 +26,7 @@ void commands::toggle_response() {
 void commands::cps_response() {
 
     int cps = utils::calculate_cps();
-    std::cout << "current cps: " << cps << "\n\n";
+    std::cout << xorstr("current cps: ") << cps << "\n\n";
 
 }
 
@@ -75,7 +75,7 @@ void commands::inventory_response() {
 
 void commands::help_response() {
 
-    std::cout << xorstr("'toggle' - toggles clicker on and off\n'upscale' - increase or decrease the speed of the clicker (the higher the number the higher the cps)\n'clickdata' - displays the click information\n'inventory' - toggles inventory on and off\n'cps' - shows the current cps\n'keybind' - view toggle keybind\n'rmblock' - toggles right mouse button lock\n\n");
+    std::cout << xorstr("'toggle' - toggles clicker on and off\n'upscale' - increase or decrease the speed of the clicker (the higher the number the higher the cps)\n'clickdata' - displays the click information\n'inventory' - toggles inventory on and off\n'cps' - shows the current cps\n'keybind' - view toggle keybind\n'rmblock' - toggles right mouse button lock\n'filter' - skip over delays exceeding the specified value in milliseconds that you have chosen\n\n");
 
 }
 
@@ -92,7 +92,18 @@ void commands::keybind_response() {
 }
 
 void commands::rmb_lock_response() {
+
     clicker::rmb_lock = !clicker::rmb_lock;
     if (clicker::rmb_lock) { std::cout << xorstr("done! rmb lock is now enabled.\n\n"); }
     else { std::cout << xorstr("done! rmb lock is now disabled.\n\n"); }
+
+}
+
+void commands::filter_response() {
+
+    std::cout << xorstr("enter delay to filter: ");
+    std::cin >> clicker::delayfilter;
+    std::cout << std::endl << std::endl;
+    std::cout << xorstr("delay set to: ") << clicker::delayfilter << std::endl << std::endl;
+
 }

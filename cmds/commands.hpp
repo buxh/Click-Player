@@ -13,5 +13,5 @@ namespace commands {
     void cps_response();
     void keybind_response();
     void rmb_lock_response();
-
+    void filter_response();
 }

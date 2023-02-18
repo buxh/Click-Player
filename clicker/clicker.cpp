@@ -1,6 +1,5 @@
 #include <chrono>
 #include <thread>
-#include <iostream>
 
 #include "clicker.hpp"
 #include "clicks\clicks.hpp"
@@ -13,10 +12,14 @@ void clicker::thread() {
 
         for (const auto& delay : clicks::clickdata) {
 
+            if (delay > clicker::delayfilter) {
+                continue; // skips to next delay
+            }
+
             if (!clicker::inventory) {
 
-                const auto isCursorVisible = []() -> bool
-                {
+                const auto isCursorVisible = []() -> bool {
+
                     CURSORINFO mouseInfo{ sizeof(CURSORINFO) };
 
                     if (GetCursorInfo(&mouseInfo))
@@ -26,10 +29,8 @@ void clicker::thread() {
                         if ((int(handle) > 50000) & (int(handle) < 100000))
                             return true;
                     }
-
                     return false;
                 };
-
                     while (isCursorVisible()) { nt::sleep(10); }
                 }
 
@@ -43,11 +44,11 @@ void clicker::thread() {
                     if (window == FindWindowA(utils::minecraft, nullptr)) {
 
                         PostMessageA(window, WM_LBUTTONDOWN, MK_LBUTTON, 0);
-                        nt::sleep(delay / 2 - upscale);
+                        nt::sleep(delay / 2 - clicker::upscale);
                         PostMessageA(window, WM_LBUTTONUP, MK_LBUTTON, 0);
-                        nt::sleep(delay / 2 - upscale);
+                        nt::sleep(delay / 2 - clicker::upscale);
 
-                        // some recorders may have saved delays differently, assuming you didn't use the recorder provided, so you may need to replace the code above with this
+                        // some recorders may have saved delays differently so you may need to replace the code above with this
                         //
                         // PostMessageA(window, WM_LBUTTONDOWN, MK_LBUTTON, 0);
                         // nt::sleep(delay - upscale);
@@ -62,17 +63,21 @@ void clicker::thread() {
 
 void clicker::binds() {
     for (;; std::this_thread::sleep_for(std::chrono::milliseconds(1))) {
+
         HWND window = GetForegroundWindow();
 
         if (window == FindWindowA(utils::minecraft, nullptr)) {
 
             if (GetAsyncKeyState(clicker::bind) & 1) {
+
                 clicker::enable = !clicker::enable;
                 if (clicker::enable) {
-                    SetConsoleTitleA("clicker: enabled");
+
+                    SetConsoleTitleA(xorstr("clicker: enabled"));
                 }
                 else {
-                    SetConsoleTitleA("clicker: disabled");
+
+                    SetConsoleTitleA(xorstr("clicker: disabled"));
                 }
             }
 
