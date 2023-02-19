@@ -2,7 +2,7 @@
 Simple C++ click player that plays back click delays
 
 ## Download
-[Download](https://github.com/buxh/Click-Player/releases/download/minecraft/Click_Recorder_and_Player.zip)
+[Download](https://github.com/buxh/Click-Player/releases/download/v2/Click_Recorder_and_Player.zip)
 
 ## How to implement your clicks
 Put click delays in [clicks::clickdata](https://github.com/buxh/Click-Player/blob/main/clicker/clicks/clicks.cpp#L4).
