@@ -28,7 +28,6 @@ In the [releases](https://github.com/buxh/Click-Player/releases) tab a click rec
  - [x] Click in inventory
  - [x] Right mouse button lock
  - [ ] ImGui
- - [ ] Exhaust
  - [ ] Self Destruct
  - [ ] Auto pot
  - [ ] Break blocks
@@ -36,7 +35,7 @@ In the [releases](https://github.com/buxh/Click-Player/releases) tab a click rec
  - [ ] Click Profiles
  - [ ] Config Creation
  - [ ] Slot Whitelist
- - [ ] Double Clicker
+ - [ ] Option to grab delays from txt file
 
  If you want anything added [create an issue](https://github.com/buxh/Click-Player/issues) and suggest it or message me on discord: `envy#4339`
 
