@@ -14,7 +14,7 @@ void commands::toggle_response() {
     
     if (clicker::enable) {
         std::cout << xorstr("done! clicker is now enabled.\n\n");
-        SetConsoleTitleA("clicker: enabled");
+        SetConsoleTitleA(xorstr("clicker: enabled"));
     }
     else {
         std::cout << xorstr("done! clicker is now disabled.\n\n");
